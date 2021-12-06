@@ -92,7 +92,7 @@ gawk -v N=$N -v m=$m -v t=$t \
 			printf "Date: %s, ",strftime("%Y/%m/%d %H:%M:%S",log_time);
 			printf "FailureTime: %s\n",fail_time;
 
-		    # フラグを回復済に変更
+		    	# フラグを回復済に変更
 			disorder_time[$2] = 0;
 			disorder_cout[$2] = 0;
 
