@@ -22,3 +22,12 @@ $ ./start_log.sh
 ・Python 3.9.9
 ・GNU Awk 5.1.1
 ```
+
+# Installation
+ 
+GNU Awk 5.1.1 のインストール方法です。
+
+```gawk
+brew install gawk
+```
+ 
