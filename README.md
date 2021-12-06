@@ -10,7 +10,7 @@ $ ./setsumon_3.sh
 $ ./setsumon_4.sh
 ```
 
-## Execution(Test Log)
+## Creation(Test Log)
 ```
 $ ./start_log.sh
 ```
