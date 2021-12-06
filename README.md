@@ -2,10 +2,10 @@
 # プログラミング試験_フィックスポイント
 
 # Usage
+## Execution
 
 各設問の実行方法です。
 
-## Execution
 ```
 $ ./setsumon_1.sh
 $ ./setsumon_2.sh
