@@ -25,7 +25,7 @@ gawk -v N=$N \
 		# 区切り文字を設定
 	 	FS=",";
 
-        # $1：ログの時刻
+       		# $1：ログの時刻
 		# $2：サーバアドレス
 		# $3：応答時間(ms) (ただし、故障時は"-")
 	 } 
@@ -40,7 +40,7 @@ gawk -v N=$N \
 
 		# ログの時刻を整形、Unix時間へ変換（故障期間の計算の為）
 		log_date = year" "month" "day" "hour" "minute" "second
-        log_time = mktime(log_date)
+        	log_time = mktime(log_date)
 		
 		# タイムアウトした時
 		if($3=="-"){
@@ -88,13 +88,13 @@ gawk -v N=$N \
 			printf "Date: %s, ",strftime("%Y/%m/%d %H:%M:%S",log_time);
 			printf "FailureTime: %s\n",fail_time;
 
-		    # フラグを回復済に変更
+		    	# フラグを回復済に変更
 			disorder_time[$2] = 0;
 			disorder_cout[$2] = 0;
 
 		# N回未満のタイムアップから復活した時
 	 	} else {
-		    # フラグを回復済に変更
+		    	# フラグを回復済に変更
 			disorder_time[$2] = 0;
 			disorder_cout[$2] = 0;
 		}
