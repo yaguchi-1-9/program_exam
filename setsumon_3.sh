@@ -8,7 +8,7 @@ function ConfirmInt() {
 	# 数値判定
 	expr "${input}" + 1 >&/dev/null
 	if [ $? -ge 2 ] ; then
-	    # 再判定
+		# 再判定
 		ConfirmInt $1
 	fi 
 }
@@ -52,7 +52,7 @@ gawk -v N=$N -v m=$m -v t=$t \
 
 		# ログの時刻を整形、Unix時間へ変換（故障期間の計算の為）
 		log_date = year" "month" "day" "hour" "minute" "second
-        log_time = mktime(log_date)
+		log_time = mktime(log_date)
 		
 		# タイムアウトした時
 		if($3=="-"){
@@ -100,13 +100,13 @@ gawk -v N=$N -v m=$m -v t=$t \
 			# printf "Date: %s, ",strftime("%Y/%m/%d %H:%M:%S",log_time);
 			# printf "FailureTime: %s\n",fail_time;
 
-		    # フラグを回復済に変更
+			# フラグを回復済に変更
 			disorder_time[$2] = 0;
 			disorder_cout[$2] = 0;
 
 		# N回未満のタイムアップから復活した時
 	 	} else {
-		    # フラグを回復済に変更
+			# フラグを回復済に変更
 			disorder_time[$2] = 0;
 			disorder_cout[$2] = 0;
 		}
