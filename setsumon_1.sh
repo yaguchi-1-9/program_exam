@@ -8,7 +8,7 @@ gawk 'BEGIN{
 		# 区切り文字を設定
 	 	FS=",";
 
-        # $1：ログの時刻
+       		# $1：ログの時刻
 		# $2：サーバアドレス
 		# $3：応答時間(ms) (ただし、故障時は"-")
 	 } 
@@ -23,7 +23,7 @@ gawk 'BEGIN{
 
 		# ログの時刻を整形、Unix時間へ変換（故障期間の計算の為）
 		log_date = year" "month" "day" "hour" "minute" "second
-        log_time = mktime(log_date)
+        	log_time = mktime(log_date)
 		
 		# 故障した時
 		if($3=="-"){
@@ -46,7 +46,7 @@ gawk 'BEGIN{
 			printf "[Recovery] Server address: %s, ",$2;
 			printf "Failure Time: %s\n",fail_time;
 
-		    # フラグを回復済に変更
+		    	# フラグを回復済に変更
 			disorder_time[$2]=0;
 		}
 	 }'
