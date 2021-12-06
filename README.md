@@ -7,6 +7,7 @@
 $ ./setsumon_1.sh
 $ ./setsumon_2.sh
 $ ./setsumon_3.sh
+$ ./setsumon_4.sh
 ```
 
 ## create test log
