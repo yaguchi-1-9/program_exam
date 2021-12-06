@@ -2,6 +2,9 @@
 # プログラミング試験_フィックスポイント
 
 # Usage
+
+各設問の実行方法です。
+
 ## Execution
 ```
 $ ./setsumon_1.sh
@@ -11,11 +14,17 @@ $ ./setsumon_4.sh
 ```
 
 ## Making Test Log
+
+テストログ作成方法です。
+
 ```
 $ ./start_log.sh
 ```
 
 ## Requirement
+
+実行環境です。
+
 ```
 ・Mac 10.15.7
 ・bash 3.2
