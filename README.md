@@ -44,7 +44,8 @@ brew install gawk
 
 設問１のテスト結果です。
 
-[Failure]は故障、[Recovery]は復活を示しています。
+[Failure]は故障、[Recovery]は復旧を示しています。
+故障期間は「Failure Time」です。
 
 ```
 $ ./setsumon_1.sh
