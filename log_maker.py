@@ -5,8 +5,13 @@ import time
 # タイムアウトの確率(%)
 probability = 50 
 
-for i in range(0, 10, 1):
+# 作成するLOG件数
+log_num = 10 
+
+for i in range(0, log_num, 1):
+	# 1秒毎に作成
 	time.sleep(1)
+	
 	# 現在時刻取得
 	dt_now = datetime.datetime.now()
 
