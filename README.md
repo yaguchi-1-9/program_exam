@@ -2,7 +2,7 @@
 # プログラミング試験_フィックスポイント
 
 # Usage
-## execution
+## Execution
 ```
 $ ./setsumon_1.sh
 $ ./setsumon_2.sh
@@ -10,7 +10,7 @@ $ ./setsumon_3.sh
 $ ./setsumon_4.sh
 ```
 
-## create test log
+## Execution(Test Log)
 ```
 $ ./start_log.sh
 ```
