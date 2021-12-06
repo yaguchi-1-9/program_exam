@@ -21,7 +21,7 @@ $ ./setsumon_4.sh
 $ ./start_log.sh
 ```
 
-## Requirement
+# Requirement
 
 実行環境です。
 
@@ -40,10 +40,11 @@ GNU Awk 5.1.1 のインストール方法です。
 brew install gawk
 ```
 
-## Test Result
+# Test Result
 
 設問１のテスト結果です。
-[Failure]はタイムアウト、[Recovery]は復旧を意味しています。
+
+[Failure]は故障、[Recovery]は復活を示しています。
 
 ```
 $ ./setsumon_1.sh
@@ -111,6 +112,82 @@ $ ./setsumon_1.sh
 ```
 
 設問２のテスト結果です。
+
+Sequenceは連続でタイムアウトした回数です。
+
 ```
-brew install gawk
+$ ./setsumon_2.sh
+ --------------------------------------------------------
+ N回以上連続してタイムアウトした場合に故障とみなしますか?
+ 数値を入力して下さい: 6
+[Failure]  ServerAddress: 192.168.1.4/24, Date: 2021/12/05 23:42:47, FailureTime: 0 hours 1 minutes 10 seconds, Sequence: 6
+[Failure]  ServerAddress: 192.168.1.4/24, Date: 2021/12/05 23:42:50, FailureTime: 0 hours 1 minutes 13 seconds, Sequence: 7
+[Failure]  ServerAddress: 192.168.1.4/24, Date: 2021/12/06 00:21:37, FailureTime: 0 hours 40 minutes 0 seconds, Sequence: 8
+[Failure]  ServerAddress: 192.168.1.4/24, Date: 2021/12/06 00:21:39, FailureTime: 0 hours 40 minutes 2 seconds, Sequence: 9
+[Failure]  ServerAddress: 192.168.1.4/24, Date: 2021/12/06 00:21:42, FailureTime: 0 hours 40 minutes 5 seconds, Sequence: 10
+[Recovery] ServerAddress: 192.168.1.4/24, Date: 2021/12/06 00:21:43, FailureTime: 0 hours 40 minutes 6 seconds
+[Failure]  ServerAddress: 192.168.1.5/24, Date: 2021/12/06 14:03:51, FailureTime: 1 hours 16 minutes 14 seconds, Sequence: 6
+```
+
+設問３のテスト結果です。
+
+[OverLoad]は過負荷状態を示しています。
+
+```
+$ ./setsumon_3.sh
+--------------------------------------------------------
+N回以上連続してタイムアウトした場合のみ故障とみなします。
+Nの数値を入力して下さい: 3
+--------------------------------------------------------
+直近m回の平均応答時間がtミリ秒を超えた場合は、
+サーバが過負荷状態になっているとみなす。
+mの数値を入力して下さい: 5
+--------------------------------------------------------
+tの数値を入力して下さい: 70
+--------------------------------------------------------
+N = 3, m = 5, t = 70
+--------------------------------------------------------
+[OverLoad] ServerAddress: 192.168.1.2/24, AverageResponseTime: 95 ms, OverLoadTime: 0 hours 0 minutes 0 seconds
+[OverLoad] ServerAddress: 192.168.1.5/24, AverageResponseTime: 87 ms, OverLoadTime: 0 hours 0 minutes 0 seconds
+[OverLoad] ServerAddress: 192.168.1.4/24, AverageResponseTime: 76 ms, OverLoadTime: 0 hours 0 minutes 0 seconds
+[OverLoad] ServerAddress: 192.168.1.4/24, AverageResponseTime: 76 ms, OverLoadTime: 0 hours 0 minutes 12 seconds
+[OverLoad] ServerAddress: 192.168.1.4/24, AverageResponseTime: 76 ms, OverLoadTime: 0 hours 0 minutes 16 seconds
+[OverLoad] ServerAddress: 192.168.1.4/24, AverageResponseTime: 76 ms, OverLoadTime: 0 hours 0 minutes 48 seconds
+[OverLoad] ServerAddress: 192.168.1.4/24, AverageResponseTime: 76 ms, OverLoadTime: 0 hours 0 minutes 52 seconds
+[OverLoad] ServerAddress: 192.168.1.5/24, AverageResponseTime: 87 ms, OverLoadTime: 0 hours 0 minutes 56 seconds
+[OverLoad] ServerAddress: 192.168.1.5/24, AverageResponseTime: 79 ms, OverLoadTime: 0 hours 1 minutes 20 seconds
+[OverLoad] ServerAddress: 192.168.1.4/24, AverageResponseTime: 76 ms, OverLoadTime: 0 hours 1 minutes 20 seconds
+[OverLoad] ServerAddress: 192.168.1.4/24, AverageResponseTime: 76 ms, OverLoadTime: 0 hours 1 minutes 22 seconds
+[OverLoad] ServerAddress: 192.168.1.5/24, AverageResponseTime: 78 ms, OverLoadTime: 0 hours 1 minutes 24 seconds
+[OverLoad] ServerAddress: 192.168.1.4/24, AverageResponseTime: 76 ms, OverLoadTime: 0 hours 1 minutes 25 seconds
+[OverLoad] ServerAddress: 192.168.1.4/24, AverageResponseTime: 76 ms, OverLoadTime: 0 hours 40 minutes 12 seconds
+[OverLoad] ServerAddress: 192.168.1.5/24, AverageResponseTime: 78 ms, OverLoadTime: 0 hours 40 minutes 14 seconds
+[OverLoad] ServerAddress: 192.168.1.4/24, AverageResponseTime: 76 ms, OverLoadTime: 0 hours 40 minutes 14 seconds
+[OverLoad] ServerAddress: 192.168.1.4/24, AverageResponseTime: 76 ms, OverLoadTime: 0 hours 40 minutes 17 seconds
+[OverLoad] ServerAddress: 192.168.1.4/24, AverageResponseTime: 76 ms, OverLoadTime: 0 hours 40 minutes 18 seconds
+[OverLoad] ServerAddress: 192.168.1.2/24, AverageResponseTime: 73 ms, OverLoadTime: 14 hours 22 minutes 15 seconds
+[OverLoad] ServerAddress: 192.168.1.2/24, AverageResponseTime: 71 ms, OverLoadTime: 14 hours 22 minutes 34 seconds
+```
+
+設問４のテスト結果です。
+
+```
+$ ./setsumon_4.sh
+--------------------------------------------------------
+N回以上連続してタイムアウトした場合のみ故障とみなします。
+Nの数値を入力して下さい: 5
+--------------------------------------------------------
+N = 5
+--------------------------------------------------------
+[Failure]  ServerAddress: 192.168.1.1/24, Date: 2021/12/05 23:42:14, FailureTime: 0 hours 0 minutes 57 seconds, Sequence: 5
+[Recovery] ServerAddress: 192.168.1.1/24, Date: 2021/12/05 23:42:15, FailureTime: 0 hours 0 minutes 58 seconds
+[Failure]  ServerAddress: 192.168.1.4/24, Date: 2021/12/05 23:42:45, FailureTime: 0 hours 1 minutes 8 seconds, Sequence: 5
+[Failure]  ServerAddress: 192.168.1.4/24, Date: 2021/12/05 23:42:47, FailureTime: 0 hours 1 minutes 10 seconds, Sequence: 6
+[Failure]  ServerAddress: 192.168.1.4/24, Date: 2021/12/05 23:42:50, FailureTime: 0 hours 1 minutes 13 seconds, Sequence: 7
+[Failure]  ServerAddress: 192.168.1.4/24, Date: 2021/12/06 00:21:37, FailureTime: 0 hours 40 minutes 0 seconds, Sequence: 8
+[Failure]  ServerAddress: 192.168.1.4/24, Date: 2021/12/06 00:21:39, FailureTime: 0 hours 40 minutes 2 seconds, Sequence: 9
+[Failure]  ServerAddress: 192.168.1.4/24, Date: 2021/12/06 00:21:42, FailureTime: 0 hours 40 minutes 5 seconds, Sequence: 10
+[Recovery] ServerAddress: 192.168.1.4/24, Date: 2021/12/06 00:21:43, FailureTime: 0 hours 40 minutes 6 seconds
+[Failure]  ServerAddress: 192.168.1.5/24, Date: 2021/12/06 14:03:41, FailureTime: 1 hours 16 minutes 4 seconds, Sequence: 5
+[Failure]  ServerAddress: 192.168.1.5/24, Date: 2021/12/06 14:03:51, FailureTime: 1 hours 16 minutes 14 seconds, Sequence: 6
 ```
